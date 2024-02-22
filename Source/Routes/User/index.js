@@ -8,6 +8,8 @@ UserRouter.post('/postUser',UserValidator.create,UserController.create);
 UserRouter.put('/updateUser/:userId',UserController.update);
 UserRouter.get('/getUsers',UserController.getAll);
 UserRouter.get('/getUser/:userid',UserController.getOne);
+UserRouter.get('/user/follow',UserController.getOne);
+
 
 
 
