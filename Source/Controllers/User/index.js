@@ -88,11 +88,11 @@ const UserController = {
     },
     follow:async(req,res)=>{
         try{
-            const {userId,followId} = req.body;
+            const {follwerId,followeeId} = req.body;
 
             await UserFollowerModel.create({
-                followerId:userId,
-                followeeId:followId,
+                followerId:follwerId,
+                followeeId:followeeId,
             })
 
             return res.json({message:"followed successfuly"})

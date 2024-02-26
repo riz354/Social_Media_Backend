@@ -1,5 +1,6 @@
 import PostModel from "../../Models/post/index.js";
 import UserModel from "../../Models/user/index.js";
+import AuthenticateMiddleware from "../../middleware/middleware.js";
 
 
 const PostController = {
@@ -7,13 +8,14 @@ const PostController = {
         try {
             const params = req.params;
             const payload = req.body;
-
-            const { title, description ,userid} = payload;
+             const hy = req.user.id;
+            console.log(hy)
+            const { title, description} = payload;
 
             const post = await PostModel.create({
                title,
                description,
-                UserId:userid,
+                UserId:hy,
             })
 
             res.json({
