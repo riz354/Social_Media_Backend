@@ -16,7 +16,7 @@ const commentController = {
                 comment,
                 username,
                 PostId: payload.postid,
-                UserId: userid
+                UserId: req.user.id
             })
 
             res.json({
@@ -70,6 +70,23 @@ const commentController = {
 
             res.json({
                 message: "get all comment",
+                allComment,
+            })
+
+        } catch (error) {
+            res.json({
+                message: "not get all data"
+            })
+        }
+    },
+
+    onlyUsers: async (req, res) => {
+        try {
+
+            const allComment = await commentModel.findAll({where:{UserId:req.user.id}});
+
+            res.json({
+                message: "get user comments",
                 allComment,
             })
 

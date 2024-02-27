@@ -1,8 +1,10 @@
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('social_media_backend', 'postgres', 'riz354', {
-    host: 'localhost',
-    dialect: 'postgres'
+const env = process.env
+console.log(env,"env")
+const sequelize = new Sequelize(env.DB_name, env.DB_user , env.DB_password, {
+    host: env.DB_host,
+    dialect: env.DB_dialect
 });
 
 

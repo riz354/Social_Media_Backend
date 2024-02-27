@@ -10,9 +10,9 @@ console.log(token)
     token = token[1];
 
     try{
-        const userData = Jwt.verify(token, 'sdccsdcw');
+        const userData = Jwt.verify(token, process.env.signature);
 
-        console.log(userData,"decode");
+        // console.log(userData,"decode");
         req.user = userData;
 
     }catch(error){

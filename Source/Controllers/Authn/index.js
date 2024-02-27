@@ -20,8 +20,8 @@ const AuthController = {
       name: user.name,
       email: user.password,
 
-    }, 'sdccsdcw', {
-      expiresIn: "12m"
+    }, process.env.signature, {
+      expiresIn: "20m"
     });
 
 

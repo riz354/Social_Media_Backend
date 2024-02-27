@@ -77,6 +77,25 @@ const PostController = {
         }
     },
 
+
+
+    getAllItself:async(req,res)=>{
+        try{
+
+            const allPost = await PostModel.findAll({where:{UserId:req.user.id}});
+
+            res.json({
+                message:"get all post",
+                allPost,
+            })
+
+        }catch(error){
+            res.json({
+                message:"not get all data"
+            })
+        }
+    },
+
     getOne:async(req,res)=>{
         try{
 
