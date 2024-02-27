@@ -8,6 +8,7 @@ const sequelize = new Sequelize(env.DB_name, env.DB_user , env.DB_password, {
 });
 
 
+
 const connect = async (req, res) => {
     try {
         await sequelize.authenticate();
